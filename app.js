@@ -3,7 +3,7 @@ require('dotenv').config()
 const app = express()
 const cors = require('cors')
 const mongoose = require('mongoose')
-const Parts = require('./model/Part')
+const Parts = require('./model/part')
 const axios = require('axios')
 const url = require('url')
 
