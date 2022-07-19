@@ -16,11 +16,6 @@ app.use(express.json())
 mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true});
 
 // ROUTES
-
-app.get('/login', async(req, res) => {
-
-  
-})
   // GET All Parts
 app.get('/assemblies', async (req, res) => {
   // LOGIN to BC and Get Auth
@@ -121,6 +116,8 @@ app.get('/assemblies', async (req, res) => {
     }
   })
   
+ 
+
   // Create array of assembly objects
   let dataArr = []
   // No,Description, QuantityAvailable
@@ -139,10 +136,28 @@ app.get('/assemblies', async (req, res) => {
   dataArr.push({No: bcRes12.data.No, Description: bcRes12.data.Description, QuantityAvailable: bcRes12.data.QuantityAvailable})
   dataArr.push({No: bcRes13.data.No, Description: bcRes13.data.Description, QuantityAvailable: bcRes13.data.QuantityAvailable})
   
+  // Loop through database array add matching threshold and note from database
+  let allPartsDB = await Parts.find({})
+ 
+  let newArr = dataArr.map((d) => {
+    let foundPart = allPartsDB.find((p) => p.no === d.No)
+    return ({...d, threshold: foundPart.threshold, note: foundPart.note})
+  })
 
-  res.send(dataArr)
-  
+  res.send(newArr)
 })
+// PUT - Update Part
+app.put('/assemblies/:id', async (req, res) => {
+  const body = req.body
+  const part = {
+    no: body.no,
+    name: body.name,
+    threshold: body.threshold,
+    note: body.note
+  }
 
+  const updatedPart = await Parts.findOneAndUpdate({no: req.params.id}, part, {new: true})
+  res.json(updatedPart)
+})
 
 module.exports = app
