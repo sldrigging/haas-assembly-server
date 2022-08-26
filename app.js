@@ -331,6 +331,7 @@ app.get('/components', async (req, res) => {
     }
   })
 
+
   // Create array of assembly objects
   let dataArr = []
   // No,Description, QuantityAvailable
@@ -368,6 +369,167 @@ app.get('/components', async (req, res) => {
   res.send(dataArr)
 })
 
+app.get('/crenshaw', async (req,res) => {
+    //Login to BC and get Auth
+    let bcAuthToken = ""
+    let baseUrl = "https://api.businesscentral.dynamics.com/v2.0/7aa2252f-93b4-403c-b991-98cdddb2fc93/Production/ODataV4/Company('Sea-Land%20Distributors%2C%20LLC')"
+  
+    const params = new url.URLSearchParams({
+      grant_type: "client_credentials",
+      scope: "https://api.businesscentral.dynamics.com/.default",
+      client_id: process.env.CLIENT_ID,
+      client_secret: process.env.CLIENT_SECRET
+    })
+  
+    let bcAuth = await axios.post('https://login.microsoftonline.com/7aa2252f-93b4-403c-b991-98cdddb2fc93/oauth2/v2.0/token', params.toString())
+    bcAuthToken = bcAuth.data.access_token
+  
+    let bcRes0 = await axios.get(`${baseUrl}/Item_Card(No='CRT00000')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+    let bcRes1 = await axios.get(`${baseUrl}/Item_Card(No='CRT01002')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+    let bcRes2 = await axios.get(`${baseUrl}/Item_Card(No='CRT01004')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+    let bcRes3 = await axios.get(`${baseUrl}/Item_Card(No='CRT01005')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+    let bcRes4 = await axios.get(`${baseUrl}/Item_Card(No='CRT01006')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+    let bcRes5 = await axios.get(`${baseUrl}/Item_Card(No='CRT01007')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+    let bcRes6 = await axios.get(`${baseUrl}/Item_Card(No='CRT01008')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+    let bcRes7 = await axios.get(`${baseUrl}/Item_Card(No='CRT01009')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+    let bcRes8 = await axios.get(`${baseUrl}/Item_Card(No='CRT01010')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+    let bcRes9 = await axios.get(`${baseUrl}/Item_Card(No='CRT01012')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+    let bcRes10 = await axios.get(`${baseUrl}/Item_Card(No='CRT01014')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+    let bcRes11 = await axios.get(`${baseUrl}/Item_Card(No='CRT01016')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+    let bcRes12 = await axios.get(`${baseUrl}/Item_Card(No='CRT01018')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+    let bcRes13 = await axios.get(`${baseUrl}/Item_Card(No='CRT01020')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+    let bcRes14 = await axios.get(`${baseUrl}/Item_Card(No='CRT01022')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+    let bcRes15 = await axios.get(`${baseUrl}/Item_Card(No='CRT01024')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+    let bcRes16 = await axios.get(`${baseUrl}/Item_Card(No='CRT01025')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+    let bcRes17 = await axios.get(`${baseUrl}/Item_Card(No='CRT01026')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+    let bcRes18 = await axios.get(`${baseUrl}/Item_Card(No='CRT01028')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+    let bcRes19 = await axios.get(`${baseUrl}/Item_Card(No='CRT01030')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+    let bcRes20 = await axios.get(`${baseUrl}/Item_Card(No='CRT01032')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+    let bcRes21 = await axios.get(`${baseUrl}/Item_Card(No='CRT01034')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+    let bcRes22 = await axios.get(`${baseUrl}/Item_Card(No='CRT01036')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+
+
+     // Create array of assembly objects
+  let dataArr = []
+  // No,Description, QuantityAvailable
+  dataArr.push({No: bcRes0.data.No, Description: bcRes0.data.Description, QuantityAvailable: bcRes0.data.QuantityAvailable})
+  dataArr.push({No: bcRes1.data.No, Description: bcRes1.data.Description, QuantityAvailable: bcRes1.data.QuantityAvailable})
+  dataArr.push({No: bcRes2.data.No, Description: bcRes2.data.Description, QuantityAvailable: bcRes2.data.QuantityAvailable})
+  dataArr.push({No: bcRes3.data.No, Description: bcRes3.data.Description, QuantityAvailable: bcRes3.data.QuantityAvailable})
+  dataArr.push({No: bcRes4.data.No, Description: bcRes4.data.Description, QuantityAvailable: bcRes4.data.QuantityAvailable})
+  dataArr.push({No: bcRes5.data.No, Description: bcRes5.data.Description, QuantityAvailable: bcRes5.data.QuantityAvailable})
+  dataArr.push({No: bcRes6.data.No, Description: bcRes6.data.Description, QuantityAvailable: bcRes6.data.QuantityAvailable})
+  dataArr.push({No: bcRes7.data.No, Description: bcRes7.data.Description, QuantityAvailable: bcRes7.data.QuantityAvailable})
+  dataArr.push({No: bcRes8.data.No, Description: bcRes8.data.Description, QuantityAvailable: bcRes8.data.QuantityAvailable})
+  dataArr.push({No: bcRes9.data.No, Description: bcRes9.data.Description, QuantityAvailable: bcRes9.data.QuantityAvailable})
+  dataArr.push({No: bcRes10.data.No, Description: bcRes10.data.Description, QuantityAvailable: bcRes10.data.QuantityAvailable})
+  dataArr.push({No: bcRes11.data.No, Description: bcRes11.data.Description, QuantityAvailable: bcRes11.data.QuantityAvailable})
+  dataArr.push({No: bcRes12.data.No, Description: bcRes12.data.Description, QuantityAvailable: bcRes12.data.QuantityAvailable})
+  dataArr.push({No: bcRes13.data.No, Description: bcRes13.data.Description, QuantityAvailable: bcRes13.data.QuantityAvailable})
+  dataArr.push({No: bcRes14.data.No, Description: bcRes14.data.Description, QuantityAvailable: bcRes14.data.QuantityAvailable})
+  dataArr.push({No: bcRes15.data.No, Description: bcRes15.data.Description, QuantityAvailable: bcRes15.data.QuantityAvailable})
+  dataArr.push({No: bcRes16.data.No, Description: bcRes16.data.Description, QuantityAvailable: bcRes16.data.QuantityAvailable})
+  dataArr.push({No: bcRes17.data.No, Description: bcRes17.data.Description, QuantityAvailable: bcRes17.data.QuantityAvailable})
+  dataArr.push({No: bcRes18.data.No, Description: bcRes18.data.Description, QuantityAvailable: bcRes18.data.QuantityAvailable})
+  dataArr.push({No: bcRes19.data.No, Description: bcRes19.data.Description, QuantityAvailable: bcRes19.data.QuantityAvailable})
+  dataArr.push({No: bcRes20.data.No, Description: bcRes20.data.Description, QuantityAvailable: bcRes20.data.QuantityAvailable})
+  dataArr.push({No: bcRes21.data.No, Description: bcRes21.data.Description, QuantityAvailable: bcRes21.data.QuantityAvailable})
+  dataArr.push({No: bcRes22.data.No, Description: bcRes22.data.Description, QuantityAvailable: bcRes22.data.QuantityAvailable})
+
+  res.send(dataArr)
+})
 // PUT - Update Part
 app.put('/assemblies/:id', async (req, res) => {
   const body = req.body
