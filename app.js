@@ -117,6 +117,21 @@ app.get('/assemblies', async (req, res) => {
       Authorization: `Bearer ${bcAuthToken}`
     }
   })
+  let bcRes14 = await axios.get(`${baseUrl}/Item_Card(No='CTA11852')`, {
+    headers: {
+      Authorization: `Bearer ${bcAuthToken}`
+    }
+  })
+  let bcRes15 = await axios.get(`${baseUrl}/Item_Card(No='CTA11846')`, {
+    headers: {
+      Authorization: `Bearer ${bcAuthToken}`
+    }
+  })
+  let bcRes16 = await axios.get(`${baseUrl}/Item_Card(No='CTA11854')`, {
+    headers: {
+      Authorization: `Bearer ${bcAuthToken}`
+    }
+  })
 
   // Create array of assembly objects
   let dataArr = []
@@ -135,6 +150,9 @@ app.get('/assemblies', async (req, res) => {
   dataArr.push({No: bcRes11.data.No, Description: bcRes11.data.Description, QuantityAvailable: bcRes11.data.QuantityAvailable})
   dataArr.push({No: bcRes12.data.No, Description: bcRes12.data.Description, QuantityAvailable: bcRes12.data.QuantityAvailable})
   dataArr.push({No: bcRes13.data.No, Description: bcRes13.data.Description, QuantityAvailable: bcRes13.data.QuantityAvailable})
+  dataArr.push({No: bcRes14.data.No, Description: bcRes14.data.Description, QuantityAvailable: bcRes14.data.QuantityAvailable})
+  dataArr.push({No: bcRes15.data.No, Description: bcRes15.data.Description, QuantityAvailable: bcRes15.data.QuantityAvailable})
+  dataArr.push({No: bcRes16.data.No, Description: bcRes16.data.Description, QuantityAvailable: bcRes16.data.QuantityAvailable})
   
   // Loop through database array add matching threshold and note from database
   let allPartsDB = await Parts.find({})
@@ -297,6 +315,21 @@ app.get('/components', async (req, res) => {
       Authorization: `Bearer ${bcAuthToken}`
     }
   })
+  let bcRes27 = await axios.get(`${baseUrl}/Item_Card(No='CRT11052')`, {
+    headers: {
+      Authorization: `Bearer ${bcAuthToken}`
+    }
+  })
+  let bcRes28 = await axios.get(`${baseUrl}/Item_Card(No='CRT11046')`, {
+    headers: {
+      Authorization: `Bearer ${bcAuthToken}`
+    }
+  })
+  let bcRes29 = await axios.get(`${baseUrl}/Item_Card(No='CRT11054')`, {
+    headers: {
+      Authorization: `Bearer ${bcAuthToken}`
+    }
+  })
 
   // Create array of assembly objects
   let dataArr = []
@@ -328,6 +361,9 @@ app.get('/components', async (req, res) => {
   dataArr.push({No: bcRes24.data.No, Description: bcRes24.data.Description, QuantityAvailable: bcRes24.data.QuantityAvailable})
   dataArr.push({No: bcRes25.data.No, Description: bcRes25.data.Description, QuantityAvailable: bcRes25.data.QuantityAvailable})
   dataArr.push({No: bcRes26.data.No, Description: bcRes26.data.Description, QuantityAvailable: bcRes26.data.QuantityAvailable})
+  dataArr.push({No: bcRes27.data.No, Description: bcRes27.data.Description, QuantityAvailable: bcRes27.data.QuantityAvailable})
+  dataArr.push({No: bcRes28.data.No, Description: bcRes28.data.Description, QuantityAvailable: bcRes28.data.QuantityAvailable})
+  dataArr.push({No: bcRes29.data.No, Description: bcRes29.data.Description, QuantityAvailable: bcRes29.data.QuantityAvailable})
 
   res.send(dataArr)
 })
