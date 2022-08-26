@@ -347,9 +347,7 @@ app.get('/components', async (req, res) => {
   dataArr.push({No: bcRes24.data.No, Description: bcRes24.data.Description, QuantityAvailable: bcRes24.data.QuantityAvailable})
   dataArr.push({No: bcRes25.data.No, Description: bcRes25.data.Description, QuantityAvailable: bcRes25.data.QuantityAvailable})
   dataArr.push({No: bcRes26.data.No, Description: bcRes26.data.Description, QuantityAvailable: bcRes26.data.QuantityAvailable})
-  dataArr.push({No: bcRes27.data.No, Description: bcRes27.data.Description, QuantityAvailable: bcRes27.data.QuantityAvailable})
-  dataArr.push({No: bcRes28.data.No, Description: bcRes28.data.Description, QuantityAvailable: bcRes28.data.QuantityAvailable})
-  dataArr.push({No: bcRes29.data.No, Description: bcRes29.data.Description, QuantityAvailable: bcRes29.data.QuantityAvailable})
+ 
 
   res.send(dataArr)
 })
