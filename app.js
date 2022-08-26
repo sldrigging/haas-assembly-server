@@ -315,21 +315,6 @@ app.get('/components', async (req, res) => {
       Authorization: `Bearer ${bcAuthToken}`
     }
   })
-  let bcRes27 = await axios.get(`${baseUrl}/Item_Card(No='CRT11052')`, {
-    headers: {
-      Authorization: `Bearer ${bcAuthToken}`
-    }
-  })
-  let bcRes28 = await axios.get(`${baseUrl}/Item_Card(No='CRT11046')`, {
-    headers: {
-      Authorization: `Bearer ${bcAuthToken}`
-    }
-  })
-  let bcRes29 = await axios.get(`${baseUrl}/Item_Card(No='CRT11054')`, {
-    headers: {
-      Authorization: `Bearer ${bcAuthToken}`
-    }
-  })
 
 
   // Create array of assembly objects
@@ -499,6 +484,22 @@ app.get('/crenshaw', async (req,res) => {
         Authorization: `Bearer ${bcAuthToken}`
       }
     })
+    let bcRes23 = await axios.get(`${baseUrl}/Item_Card(No='CRT11052')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+    let bcRes24 = await axios.get(`${baseUrl}/Item_Card(No='CRT11046')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+    let bcRes25 = await axios.get(`${baseUrl}/Item_Card(No='CRT11054')`, {
+      headers: {
+        Authorization: `Bearer ${bcAuthToken}`
+      }
+    })
+  
 
 
      // Create array of assembly objects
@@ -527,6 +528,9 @@ app.get('/crenshaw', async (req,res) => {
   dataArr.push({No: bcRes20.data.No, Description: bcRes20.data.Description, QuantityAvailable: bcRes20.data.QuantityAvailable})
   dataArr.push({No: bcRes21.data.No, Description: bcRes21.data.Description, QuantityAvailable: bcRes21.data.QuantityAvailable})
   dataArr.push({No: bcRes22.data.No, Description: bcRes22.data.Description, QuantityAvailable: bcRes22.data.QuantityAvailable})
+  dataArr.push({No: bcRes23.data.No, Description: bcRes23.data.Description, QuantityAvailable: bcRes23.data.QuantityAvailable})
+  dataArr.push({No: bcRes24.data.No, Description: bcRes24.data.Description, QuantityAvailable: bcRes24.data.QuantityAvailable})
+  dataArr.push({No: bcRes25.data.No, Description: bcRes25.data.Description, QuantityAvailable: bcRes25.data.QuantityAvailable})
 
   res.send(dataArr)
 })
